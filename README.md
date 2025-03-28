@@ -506,7 +506,7 @@ Current default:
 ```python
 DEF_ENV = Env(
     ram_region=(0, 0x1_00_00),
-    code_region=(0x10_00_00, 0x1_00_00_00_00),
+    code_region=(0x1_00_00, 0x1_00_00_00_00),
     named_registers={"sp": 13, "lr": 14},
     max_passes=16,
 )
