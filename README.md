@@ -244,13 +244,13 @@ They are usually produced by `R` and `M` factories.
 
 `Reg` and `Mem` objects overload most Python operators:
 
-- `+`, `-`, `\*`, `/`, `//`, `%`
+- `+`, `-`, `*`, `/`, `//`, `%`
 
 - `>>`, `<<`, `&`, `|`, `^`
 
 - `==`, `!=`, `<`, `>`, `<=`, `>=`
 
-- `abs()`, `\~`
+- `abs()`, `~`
 
 Combine it with the `set` method to write a much more concise code:
 
