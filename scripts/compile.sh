@@ -1,0 +1,1 @@
+gcc -m64 -O2 -fPIC -shared -DERR_ON_ZERO_DIVISION=true -DERR_ON_INT_OVERFLOW=true ../c/bajo.c -Wall -o ../tests/bajo.so
