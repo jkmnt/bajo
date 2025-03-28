@@ -47,7 +47,7 @@ script = Script(
         b.set(a + 20),
         c.set(b * 30),
         when(
-            c > 1000,
+            c < 1000,
             then=host_func_42(a, b),
         ),
     ]
@@ -482,7 +482,7 @@ s = Script([
 def pack(code): ...
 ```
 
-The `pack` inserts `NoPad(1)` before each code item. This prevents the assembler from inserting any
+The `pack` inserts `NoPad()` before each code item. This prevents the assembler from inserting any
 padding.
 
 ## Build env
