@@ -152,7 +152,7 @@ class CodeAt(Mem):
             return self.obj.addr_from(lay)
         return self.obj.result_for(lay)
 
-    def check_check(self, lay: ProvidesLayout) -> None:
+    def check_against(self, lay: ProvidesLayout) -> None:
         v = self.addr_from(lay)
         if not lay.is_code(v):
             raise AddrError("Outside of code region", self)
