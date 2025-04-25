@@ -6,6 +6,7 @@ from .core import (
     Add,
     IMem,
     ImmExpr,
+    ImmSub,
     Inst,
     Mem,
     ProvidesLayout,
@@ -271,10 +272,14 @@ class MemFactory:
             return IMem(obj)
         if isinstance(obj, (Inst, ImmExpr)):
             return CodeAt(obj)
-        if obj.op is Add and isinstance(obj.a, Mem) and isinstance(obj.b, Mem | IMem | int):
+        if obj.op is Add and isinstance(obj.a, Mem) and isinstance(obj.b, Mem | IMem | ImmExpr | int):
             return IMem(obj.a, obj.b)
-        if obj.op is Sub and isinstance(obj.a, Mem) and isinstance(obj.b, int):
-            return IMem(obj.a, -obj.b)
+        # Some subs may be converted to IMem too
+        if obj.op is Sub and isinstance(obj.a, Mem):
+            if isinstance(obj.b, int):
+                return IMem(obj.a, -obj.b)
+            if isinstance(obj.b, ImmExpr):
+                return IMem(obj.a, ImmSub(0, obj.b))
         raise TypeError("Unsupported subscription type", obj)
 
 

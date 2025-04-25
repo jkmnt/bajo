@@ -353,7 +353,7 @@ code = [
     ...,
     # Jump to code block indexed by R4
     R[4].set(R[4] * 4),
-    Jmp(M[jt + R[4]])
+    Jmp(M[R[4] + jt])
 
     # jumptable, each word is code address.
     jt,
